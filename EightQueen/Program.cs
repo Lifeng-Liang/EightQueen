@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace EightQueen
 {
@@ -86,15 +87,17 @@ namespace EightQueen
 
         static void PrintBoard(Board board, string msg = "")
         {
-            Console.WriteLine("-------------------" + msg + "----" + _gotCount);
+			var sb = new StringBuilder(150);
+			sb.Append("-------------------").Append(msg).Append("----").AppendLine(_gotCount.ToString());
             for (int x = 0; x < 8; x++)
             {
                 for (int y = 0; y < 8; y++)
                 {
-                    Console.Write(board.HasChess(x,y) ? "@" : board.AtAttackZone(x, y) ? "#" : ".");
+					sb.Append(board.HasChess(x,y) ? "@" : board.AtAttackZone(x, y) ? "#" : ".");
                 }
-                Console.WriteLine();
+				sb.AppendLine();
             }
+			Console.WriteLine(sb);
         }
 
         static Board Press(Board board, int x, int y)
