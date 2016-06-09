@@ -1,4 +1,17 @@
 
 *.userprefs
-/EightQueen/bin
-/EightQueen/obj
+/Original/EightQueen/bin
+/Original/EightQueen/obj
+
+EightQueens.n
+
+/cpp
+/java
+/php
+/bin
+
+EightQueens.js
+
+EightQueens.lua
+
+EightQueens.py
