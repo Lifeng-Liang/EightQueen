@@ -4,6 +4,7 @@ using Main;
 class Main 
 {
     static var _gotCount = 0;
+	static var sb = new StringBuf();
 	
 	static public inline function append<T>(sb : StringBuf, s : T) : StringBuf
 	{
@@ -15,9 +16,10 @@ class Main
 	{
 		var t = haxe.Timer.stamp();
 		TryPress(new Board(), 7);
-		trace("---------end----------");
-		trace("----" + _gotCount + "----");
-		trace("Elapsed time : " + ( haxe.Timer.stamp() - t));
+		sb.append("---------end----------\n");
+		sb.append("----" + _gotCount + "----\n");
+		sb.append("Elapsed time : " + ( haxe.Timer.stamp() - t));
+		trace(sb.toString());
 	}
 	
 	private static function TryPress(board : Board, y : Int) : Void
@@ -38,7 +40,6 @@ class Main
 	
 	static function PrintBoard(board : Board, msg : String = "") : Void
 	{
-		var sb = new StringBuf();
 		sb.append("-------------------").append(msg).append("----").append(_gotCount).append("\n");
 		for (x in 0...8) {
 			for (y in 0...8) {
@@ -46,7 +47,6 @@ class Main
 			}
 			sb.append("\n");
 		}
-		trace(sb.toString());
 	}
 	
 	static function Press(board : Board, x : Int, y : Int) : Board
